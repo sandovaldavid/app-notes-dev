@@ -1,85 +1,54 @@
-import { Box, Card, CardActions, CardContent, Fab, TextField } from "@mui/material";
-import './NewNotesForm.css';
-import { Add } from "@mui/icons-material";
-import { useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+// NewNotesForm.jsx
+import React, { useState } from 'react';
+import { TextField, Button, Paper } from '@material-ui/core';
 
-export default function NewNotesForm(props){
-    const navigate = useNavigate()
-const [note,setNote]=useState({
-    title:"",
-    content:""
-})
+function NewNotesForm({ addNote }) {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
-function handleChange(event){
-    const {name, value}=event.target;
-    setNote(prevNote =>{
-        console.log(prevNote,name,value)
-        return{
-            ...prevNote,
-            [name]: value
-        }
-            
-        
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('http://localhost:3000/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title, content }),
     })
+      .then(response => response.json())
+      .then(newNote => {
+        addNote(newNote);
+        setTitle('');
+        setContent('');
+      })
+      .catch(error => console.error('Error:', error));
+  };
 
+  return (
+    <Paper style={{ padding: '16px', marginBottom: '16px' }}>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          fullWidth
+          multiline
+          rows={4}
+          margin="normal"
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Add Note
+        </Button>
+      </form>
+    </Paper>
+  );
 }
-function submitNote(event){
-    props.onAdd(note);
-    setNote({
-        title: "",
-        content: ""
-    });
-    event.preventDefault();
-    
-}
-    return(
-    <Box sx={{
-        display: 'flex',
-        justifyContent:'center',
-        mt:2
-    }}>
-        <Card sx={{width: '50%', maxWidth: 480}}>
-            <CardContent>
-                <form>
-                <Box 
-                    sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column'
-                    }}
-                >
-                    <TextField
-                        id="title"
-                        label="Crea un Formulario para Notas"
-                        name="title"
-                        variant="filled"
-                        value={(note.title)}
-                        onChange={handleChange}
 
-                     />
-                    <TextField
-                        id="content"
-                        name="content"
-                        label="Contenido Nota"
-                        variant="filled"
-                        multiline
-                        rows={3}
-                        value={(note.content)}
-                        onChange={handleChange}
-                    />
-                </Box>                
-                </form>
-            </CardContent>
-            <CardActions sx={{display:'flex',justifyContent:'right'}}>
-                <Fab size="small">
-                    <Add onClick={submitNote}>
-
-                    </Add>
-                </Fab>
-            </CardActions>
-        </Card>
-    </Box>
-)
-
-}
+export default NewNotesForm;
