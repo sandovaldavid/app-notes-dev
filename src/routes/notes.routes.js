@@ -1,25 +1,22 @@
 const { Router } = require("express");
 const pool = require("../db");
 const router = Router();
+const {
+	getAllNotes,
+	getNote,
+	createNote,
+	deleteNote,
+	updateNote,
+} = require("../controllers/notes.controller");
 
-router.get("/notes", async (req, res) => {
-	res.send("Retrieving all notes");
-});
+router.get("/notes", getAllNotes);
 
-router.get("/notes/10", (req, res) => {
-	res.send("Retrieving a single note");
-});
+router.get("/notes/10", getNote);
 
-router.post("/notes", (req, res) => {
-	res.send("creating a new note");
-});
+router.post("/notes", createNote);
 
-router.delete("/notes", (req, res) => {
-	res.send("deleting a note");
-});
+router.delete("/notes", deleteNote);
 
-router.put("/notes", (req, res) => {
-	res.send("updating a note");
-});
+router.put("/notes", updateNote);
 
 module.exports = router;
