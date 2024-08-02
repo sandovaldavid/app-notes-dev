@@ -44,7 +44,15 @@ const deleteNote = async (req, res) => {
 	return res.sendStatus(204);
 };
 const updateNote = async (req, res) => {
-	res.send("updating a note");
+	const { id } = req.params;
+	const { title, content } = req.body;
+	const result = await pool.query(
+		"UPDATE notes SET title = $1, content = $2 WHERE id = $3 RETURNING *",
+		[title, content, id]
+	);
+	if (result.rows.length === 0)
+		return res.status(404).json({ message: "Note not found" });
+	return res.json(result.rows[0]);
 };
 
 module.exports = {
