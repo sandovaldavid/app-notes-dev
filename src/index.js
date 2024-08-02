@@ -6,6 +6,7 @@ const notesRoutes= require('./routes/notes.routes');
 const app = express();
 
 app.use(morgan('dev'));
+app.use(express.json());
 
 app.use(notesRoutes);
 
