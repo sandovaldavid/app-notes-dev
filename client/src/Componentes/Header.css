@@ -1,0 +1,9 @@
+header{
+    position: fixed;
+    background-color: rgb(91, 152, 145);
+    color: rgb(70, 62, 89);
+    text-align: left;
+    top: 0;
+    width: 100%;
+    height: 3rem;
+}
