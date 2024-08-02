@@ -3,8 +3,7 @@ const pool = require("../db");
 const router = Router();
 
 router.get("/notes", async (req, res) => {
-	const result = await pool.query("SELECT NOW()");
-	res.json(result.rows[0].now);
+	res.send("Retrieving all notes");
 });
 
 router.get("/notes/10", (req, res) => {
