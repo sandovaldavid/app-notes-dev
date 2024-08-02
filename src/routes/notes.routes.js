@@ -11,7 +11,7 @@ const {
 
 router.get("/notes", getAllNotes);
 
-router.get("/notes/10", getNote);
+router.get("/notes/:id", getNote);
 
 router.post("/notes", createNote);
 

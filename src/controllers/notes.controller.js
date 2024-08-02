@@ -10,7 +10,17 @@ const getAllNotes = async (req, res) => {
 };
 
 const getNote = async (req, res) => {
-	res.send("Retrieving a single note");
+	try {
+		const { id } = req.params;
+		const result = await pool.query("SELECT * FROM notes WHERE id = $1", [
+			id,
+		]);
+		if (result.rows.length === 0)
+			return res.status(404).json({ message: "Note not found" });
+		res.json(result.rows[0]);
+	} catch (error) {
+		console.log(error.message);
+	}
 };
 
 const createNote = async (req, res) => {
