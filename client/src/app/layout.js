@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
-
+import { Container } from "@mui/material";
+import Menu from "../components/NavBar";
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
@@ -11,7 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={roboto.className}>{children}</body>
+			<body className={roboto.className}>
+				<Menu>
+				</Menu>
+					<Container>{children}</Container>
+			</body>
 		</html>
 	);
 }
