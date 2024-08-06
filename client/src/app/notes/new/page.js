@@ -1,7 +1,6 @@
 
+import NoteForm from "@/app/components/NoteForm";
 
 export default function NewNotePage() {
-  return (
-    <div>NewNotePage</div>
-  )
+	return <NoteForm></NoteForm>;
 }
