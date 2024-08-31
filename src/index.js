@@ -12,9 +12,9 @@ app.use(express.json());
 
 app.use(notesRoutes);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
 	return res.json({ message: err.message });
 });
 
 app.listen(3000);
-console.log("Server started on port 3000");
+console.log("Server started on port 3000"); 
