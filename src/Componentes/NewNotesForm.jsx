@@ -41,7 +41,10 @@ function NewNotesForm({ addNote }) {
     };
 
     return (
-        <Paper style={{ padding: "16px", marginBottom: "16px" }}>
+        <Paper
+            id="new-note-form"
+            style={{ padding: "16px", marginBottom: "16px" }}
+        >
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Title"
