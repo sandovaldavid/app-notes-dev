@@ -4,6 +4,8 @@ import { Container, Typography, Grid, Snackbar } from '@material-ui/core';
 import Note from './Componentes/Note';
 import NewNotesForm from './Componentes/NewNotesForm';
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -14,7 +16,7 @@ function App() {
   }, []);
 
   const fetchNotes = () => {
-    fetch('http://localhost:3000/notes')
+    fetch(`${API_URL}/notes`)
       .then(response => response.json())
       .then(data => setNotes(data))
       .catch(error => console.error('Error:', error));
@@ -33,7 +35,7 @@ function App() {
   };
 
   const deleteNote = (id) => {
-    fetch(`http://localhost:3000/notes/${id}`, {
+    fetch(`${API_URL}/notes/${id}`, {
       method: 'DELETE',
     })
       .then(() => {
