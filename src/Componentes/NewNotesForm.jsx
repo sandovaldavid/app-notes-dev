@@ -10,6 +10,13 @@ function NewNotesForm({ addNote }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Validate input
+        if (!title.trim() || !content.trim()) {
+            console.error("Title and content are required");
+            return;
+        }
+
         fetch(`${API_URL}/notes`, {
             method: "POST",
             headers: {
@@ -17,13 +24,20 @@ function NewNotesForm({ addNote }) {
             },
             body: JSON.stringify({ title, content }),
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then((newNote) => {
                 addNote(newNote);
                 setTitle("");
                 setContent("");
             })
-            .catch((error) => console.error("Error:", error));
+            .catch((error) => {
+                console.error("Error creating note:", error);
+            });
     };
 
     return (
