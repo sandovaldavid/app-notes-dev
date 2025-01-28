@@ -131,7 +131,11 @@ function NewNotesForm({ addNote }) {
                         variant="outlined"
                         startIcon={<ClearIcon />}
                         fullWidth={isMobile}
-                        style={{ padding: "0.75rem 1.5rem" }}
+                        style={{
+                            padding: "0.75rem 1.5rem",
+                            marginRight: isMobile ? 0 : "1rem",
+                            marginBottom: isMobile ? "1rem" : 0,
+                        }}
                     >
                         Clear
                     </Button>
