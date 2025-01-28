@@ -19,6 +19,7 @@ import {
 import Note from './Componentes/Note';
 import NewNotesForm from './Componentes/NewNotesForm';
 import Footer from './Componentes/Footer';
+import Header from './Componentes/Header';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -28,6 +29,8 @@ function App() {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   useEffect(() => {
     fetchNotes();
@@ -79,9 +82,10 @@ function App() {
 
   return (
     <>
+      <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       <Container maxWidth="lg">
         <div style={{
-          paddingTop: matches ? '1rem' : '2rem',
+          paddingTop: matches ? '5rem' : '5rem',
           paddingBottom: '2rem',
           minHeight: '100vh',
           position: 'relative',
