@@ -23,7 +23,11 @@ function App() {
   };
 
   const addNote = (note) => {
-    setNotes([...notes, note]);
+    if (!note.id) {
+      console.error('Note missing ID:', note);
+      return;
+    }
+    setNotes(prevNotes => [...prevNotes, note]);
     setSnackbarMessage('Note added successfully!');
     setSnackbarOpen(true);
   };
