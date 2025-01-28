@@ -2,8 +2,8 @@
 
 A modern, responsive notes application built with React and Material-UI that allows users to create, edit, and manage notes with a clean and intuitive interface.
 
-[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/)
-[![Material-UI](https://img.shields.io/badge/Material--UI-4.12.4-blue)](https://material-ui.com/)
+[![React](https://img.shields.io/badge/React-18.2.8-blue)](https://reactjs.org/)
+[![Material-UI](https://img.shields.io/badge/Material--UI-5.15.7-blue)](https://material-ui.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## 🚀 Features
