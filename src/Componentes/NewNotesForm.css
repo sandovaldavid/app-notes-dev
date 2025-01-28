@@ -7,7 +7,35 @@ body{
     top: 3rem;
     width: 100%;
     height: 20rem;
+}
 
+/* Remove the existing styles and add these new ones */
+.MuiPaper-root {
+    transition: box-shadow 0.3s ease-in-out;
+}
 
+.MuiPaper-root:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
 
+.MuiTextField-root {
+    margin-bottom: 1rem;
+}
+
+.MuiButton-root {
+    transition: transform 0.2s ease;
+}
+
+.MuiButton-root:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .MuiTextField-root {
+        margin-bottom: 0.75rem;
+    }
+
+    .MuiButton-root {
+        margin-top: 0.5rem;
+    }
 }
