@@ -11,13 +11,13 @@ import {
     useMediaQuery,
     useTheme,
     Tooltip,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
     Delete as DeleteIcon,
     Edit as EditIcon,
     Save as SaveIcon,
     Cancel as CancelIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import PropTypes from "prop-types";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;

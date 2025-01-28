@@ -8,14 +8,14 @@ import {
   useTheme,
   useMediaQuery,
   IconButton,
-  Fab
-} from '@material-ui/core';
-import { Alert } from '@mui/material';
+  Fab,
+  Alert
+} from '@mui/material';
 import {
   NoteAdd,
   Notes as NotesIcon,
   Close as CloseIcon
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 import Note from './Componentes/Note';
 import NewNotesForm from './Componentes/NewNotesForm';
 import Footer from './Componentes/Footer';

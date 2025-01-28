@@ -8,13 +8,13 @@ import {
     Box,
     useMediaQuery,
     useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
     NoteAdd,
     Title as TitleIcon,
     Description as DescriptionIcon,
     Clear as ClearIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import PropTypes from "prop-types";
 import "./NewNotesForm.css";
 

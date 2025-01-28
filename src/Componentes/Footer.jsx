@@ -1,17 +1,11 @@
 import React from "react";
-import {
-    Typography,
-    Container,
-    Box,
-    IconButton,
-    Tooltip,
-} from "@material-ui/core";
+import { Typography, Container, Box, IconButton, Tooltip } from "@mui/material";
 import {
     Code as CodeIcon,
     GitHub as GitHubIcon,
     LinkedIn as LinkedInIcon,
     Favorite as HeartIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import "./Footer.css";
 
 const year = new Date().getFullYear();
