@@ -61,10 +61,10 @@ function NewNotesForm({ addNote }) {
             id="new-note-form"
             elevation={3}
             style={{
-                padding: isMobile ? "1rem" : "2rem",
-                marginBottom: "2rem",
+                padding: isMobile ? "1.5rem" : "2.5rem",
+                marginBottom: "2.5rem",
                 background: theme.palette.background.paper,
-                borderRadius: "8px",
+                borderRadius: "12px",
                 transition: "all 0.3s ease",
             }}
         >
@@ -75,8 +75,8 @@ function NewNotesForm({ addNote }) {
                 style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "0.5rem",
-                    marginBottom: "1rem",
+                    gap: "0.75rem",
+                    marginBottom: "2rem",
                 }}
             >
                 <NoteAdd color="primary" />
@@ -84,7 +84,9 @@ function NewNotesForm({ addNote }) {
             </Typography>
 
             <form onSubmit={handleSubmit}>
-                <Box mb={2}>
+                <Box mb={3}>
+                    {" "}
+                    {/* Increased margin bottom */}
                     <TextField
                         label="Title"
                         value={title}
@@ -96,10 +98,11 @@ function NewNotesForm({ addNote }) {
                             startAdornment: <TitleIcon color="action" />,
                         }}
                         placeholder="Enter note title"
+                        style={{ marginBottom: "1.5rem" }}
                     />
                 </Box>
 
-                <Box mb={3}>
+                <Box mb={4}>
                     <TextField
                         label="Content"
                         value={content}
@@ -118,15 +121,17 @@ function NewNotesForm({ addNote }) {
 
                 <Box
                     display="flex"
-                    gap={2}
+                    gap={3}
                     justifyContent="flex-end"
                     flexDirection={isMobile ? "column" : "row"}
+                    mt={2}
                 >
                     <Button
                         onClick={handleClear}
                         variant="outlined"
                         startIcon={<ClearIcon />}
                         fullWidth={isMobile}
+                        style={{ padding: "0.75rem 1.5rem" }}
                     >
                         Clear
                     </Button>
@@ -137,6 +142,7 @@ function NewNotesForm({ addNote }) {
                         startIcon={<NoteAdd />}
                         fullWidth={isMobile}
                         style={{
+                            padding: "0.75rem 1.5rem",
                             transition: "transform 0.2s ease",
                             "&:hover": {
                                 transform: "translateY(-2px)",
