@@ -148,10 +148,11 @@ function App() {
                   xs={12}
                   sm={6}
                   md={4}
-                  lg={3}
+                  lg={4}
                   style={{
                     display: 'flex',
                     transition: 'all 0.3s ease-in-out',
+                    height: "30%",
                     '&:hover': {
                       transform: 'translateY(-4px)'
                     }
