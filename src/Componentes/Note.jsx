@@ -9,6 +9,7 @@ import {
     Button,
 } from "@material-ui/core";
 import { Delete, Edit, Save } from "@material-ui/icons";
+import PropTypes from "prop-types";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -85,5 +86,16 @@ function Note({ note, deleteNote, updateNote }) {
         </Card>
     );
 }
+
+Note.propTypes = {
+    note: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
+    }).isRequired,
+    deleteNote: PropTypes.func.isRequired,
+    updateNote: PropTypes.func.isRequired,
+    isSmallScreen: PropTypes.bool.isRequired
+};
 
 export default Note;
