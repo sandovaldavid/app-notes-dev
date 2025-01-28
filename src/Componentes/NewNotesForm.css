@@ -1,17 +1,6 @@
-body{
-    background-color: rgb(121, 186, 222);
-    height: 3rem;
-    position: fixed;
-    color: rgb(12, 6, 26);
-    text-align: left;
-    top: 3rem;
-    width: 100%;
-    height: 20rem;
-}
-
-/* Remove the existing styles and add these new ones */
 .MuiPaper-root {
     transition: box-shadow 0.3s ease-in-out;
+    margin: 2rem 0;
 }
 
 .MuiPaper-root:hover {
@@ -19,11 +8,16 @@ body{
 }
 
 .MuiTextField-root {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem !important;
+}
+
+.MuiInputBase-root {
+    padding: 0.5rem 0;
 }
 
 .MuiButton-root {
     transition: transform 0.2s ease;
+    margin: 0.5rem 0;
 }
 
 .MuiButton-root:hover {
@@ -41,14 +35,18 @@ body{
 
 @media (max-width: 600px) {
     .MuiTextField-root {
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem !important;
     }
 
     .MuiButton-root {
-        margin-top: 0.5rem;
+        margin: 0.5rem 0;
     }
 
     .note-card {
         margin-bottom: 1rem;
+    }
+
+    .MuiPaper-root {
+        margin: 1rem 0;
     }
 }
