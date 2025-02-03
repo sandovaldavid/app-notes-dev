@@ -15,6 +15,8 @@ A modern, responsive notes application built with React and Material-UI that all
 - 🔄 Real-time updates
 - 🚨 Error handling and notifications
 
+## [BACKEND](https://github.com/sandovaldavid/app-notes-api)
+
 ## 🛠️ Tech Stack
 
 - React.js
